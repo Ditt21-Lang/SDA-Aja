@@ -1,24 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "linked.h"
+#include "linked_city.h"
 #include "DLL.h"
 
 int main(){
-    CityList awal;
-    City Kota;
+    
+    City Kota; 
+    ListCity awal;
 
 
-    CreateEmptyHead(&awal);
+    CreateListCity(&awal);
     InsertKota(&awal, "Bandung");
     InsertKota(&awal, "Jakarta");
-
-    printf("%s", awal.head->kt);
 
     InsertPerson(&awal, "Bandung", "Amir");
     InsertPerson(&awal, "Jakarta", "Wafi");
 
-    printf("%s", awal.head->persons->info);
-    printf("\n");
-    printf("%s", awal.head->next->persons->info);
+    PrintInfoCity(awal);
+    
     return 0;
 }

@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "linked.h": "c",
+        "linked_city.h": "c"
+    }
+}
