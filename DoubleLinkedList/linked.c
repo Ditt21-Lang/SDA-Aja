@@ -349,7 +349,7 @@ void PrintInfo(List L)
 	/* Algoritma */
 	if (First(L) == Nil)
 	{
-		printf("List Kosong\n");
+		// Jangan lakukan apa - apa
 	}
 	else
 	{

@@ -14,5 +14,7 @@ typedef struct City* CityNode;
 void CreateEmptyHead(ListCity *awal);
 void InsertKota(ListCity* awal , const char* namaKota);
 void InsertPerson( ListCity* awal ,const char* namaKota, const char* name);
+void DeletePerson(ListCity* awal, const char* namaKota, const char* name);
+void DeleteCity(ListCity* awal,const char* namaKota);
 
 #endif

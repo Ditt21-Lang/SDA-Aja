@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "linked.h"
 #include "linked_city.h"
 #include "DLL.h"
@@ -8,16 +9,68 @@ int main(){
     
     City Kota; 
     ListCity awal;
+    char nameKota[100];
+    char namaOrang[100];
+    char oh;
+    int opsi, baru;
+    boolean isLagi = true;
 
 
-    CreateListCity(&awal);
-    InsertKota(&awal, "Bandung");
-    InsertKota(&awal, "Jakarta");
+    printf("Masukkan jumlah Kota: ");
+    scanf("%d", &baru);
 
-    InsertPerson(&awal, "Bandung", "Amir");
-    InsertPerson(&awal, "Jakarta", "Wafi");
+    if(baru < 5){
+        printf("Kecil bro, minimal 5");
+        return -1;
+    }else{
+        CreateListCity(&awal);
+    }
 
+    for(int i = 0; i < baru; i++){
+        printf("Masukkan Kota ke-%d: ", i);
+        scanf("%s", nameKota);
+        
+        InsertKota(&awal, nameKota);
+    }
     PrintInfoCity(awal);
-    
+
+    while (isLagi){
+        printf("Pilih Opsi: \n");
+        printf("1. Insert Person\n2. Delete Person\n3. Delete Kota\nPilih aku atau dia: ");
+        scanf("%d", &opsi);
+
+        if(opsi == 1){
+            printf("Masukkan dimana orang tersebut akan dimasukkan: ");
+            scanf("%s", nameKota);
+            printf("Masukkan nama orang tersebut: ");
+            scanf("%s", namaOrang);
+
+            InsertPerson(&awal, nameKota, strdup(namaOrang));
+            PrintInfoCity(awal);
+        }
+        else if (opsi == 2){
+            printf("Masukkan dimana orang tersebut berada: ");
+            scanf("%s", nameKota);
+            printf("Masukkan nama orang tersebut: ");
+            scanf("%s", namaOrang);
+
+            DeletePerson(&awal, nameKota, namaOrang);
+            PrintInfoCity(awal);
+        }
+        else if(opsi == 3){
+            printf("Masukkan nama kota tersebut: ");
+            scanf("%s", nameKota);
+
+            DeleteCity(&awal, nameKota);
+            PrintInfoCity(awal);
+        }
+
+        printf("Mau lagi? (Y/N): ");
+        scanf(" %c", &oh);
+        if(oh == 'N' || oh == 'n'){
+            isLagi = false;
+        }
+    }
+
     return 0;
 }
