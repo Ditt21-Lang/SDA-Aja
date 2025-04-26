@@ -8,7 +8,8 @@
 
 void CreateEmpty(CityArr *K, int size){
     K->kotas = (City*)malloc(sizeof(City) * size);
-    for(int i = 0; i < size; i++){
+    int i;
+	for( i = 0; i < size; i++){
         K->kotas[i].persons = Nil;
     } 
     K->size = size;
@@ -17,7 +18,8 @@ void CreateEmpty(CityArr *K, int size){
 
 void PrintInfoKota(CityArr *cityArr){
     City* K = cityArr->kotas;
-    for (int i = 0; i < cityArr->size; i++){
+    int i;
+	for ( i = 0; i < cityArr->size; i++){
         printf("%s -> ", K[i].kt);
         personNode current = K[i].persons;
         while (current != NULL){
@@ -32,7 +34,8 @@ void PrintInfoKota(CityArr *cityArr){
 
 void DeletePerson(CityArr *cityArr, const char *namaKota ,const char *name){
     City* K = cityArr->kotas;
-    for (int i = 0; i < cityArr->size; i++){
+    int i;
+	for ( i = 0; i < cityArr->size; i++){
         if(strcmp(K[i].kt, namaKota) == 0){
             personNode current = K[i].persons;
             List Biji;
@@ -51,7 +54,8 @@ void DeletePerson(CityArr *cityArr, const char *namaKota ,const char *name){
 
 void InsertPerson(CityArr *cityArr, const char *namaKota, const char *name){
     City* K = cityArr->kotas;
-    for (int i = 0; i < cityArr->size; i++){
+    int i;
+	for ( i = 0; i < cityArr->size; i++){
         if (strcmp(K[i].kt, namaKota) == 0){
             List Biji;
             personNode current = K[i].persons;
@@ -67,7 +71,8 @@ void InsertPerson(CityArr *cityArr, const char *namaKota, const char *name){
 
 void DeleteKota(CityArr *cityArr, const char *name){
     City* K = cityArr->kotas;
-    for (int i = 0; i < cityArr->size; i++){
+    int i;
+	for ( i = 0; i < cityArr->size; i++){
         if(strcmp(K[i].kt, name) == 0){
             List Biji;
             Biji.First = K[i].persons;

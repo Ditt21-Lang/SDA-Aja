@@ -64,6 +64,8 @@ void DeleteCity(ListCity* awal,const char* namaKota){
 
     if(!ketemu){
         printf("Kota tidak ketemu Boy");
+        return;
+        
     }
 
     List l;

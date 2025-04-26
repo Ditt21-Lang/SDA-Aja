@@ -356,14 +356,15 @@ void PrintInfoCity(ListCity L)
 		P = First(L);
 		while (P != Nil)
 		{
-			printf("%s ", Info(P).kt);
+			printf("%s -> ", Info(P).kt);
 			List l;
 			l.First = Info(P).persons;
 			PrintInfo(l);
+			printf("\n");
+			printf("   |\n   v\n");
 
 			P = Next(P);
 		}
-		printf("\n");
 	}
 	/* Buatkan algoritma sesuai spesifikasi modul ini*/
 }

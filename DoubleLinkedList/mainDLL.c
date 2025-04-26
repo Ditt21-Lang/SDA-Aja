@@ -25,18 +25,19 @@ int main(){
     }else{
         CreateListCity(&awal);
     }
-
-    for(int i = 0; i < baru; i++){
+	
+	int i;
+    for( i = 0; i < baru; i++){
         printf("Masukkan Kota ke-%d: ", i);
         scanf("%s", nameKota);
         
         InsertKota(&awal, nameKota);
     }
     PrintInfoCity(awal);
-
+    printf("\n");
     while (isLagi){
         printf("Pilih Opsi: \n");
-        printf("1. Insert Person\n2. Delete Person\n3. Delete Kota\nPilih aku atau dia: ");
+        printf("1. Insert Person\n2. Delete Person\n3. Delete Kota\nPilih 1,2, atau 3: ");
         scanf("%d", &opsi);
 
         if(opsi == 1){
@@ -46,6 +47,7 @@ int main(){
             scanf("%s", namaOrang);
 
             InsertPerson(&awal, nameKota, strdup(namaOrang));
+            printf("\n");
             PrintInfoCity(awal);
         }
         else if (opsi == 2){
@@ -55,6 +57,7 @@ int main(){
             scanf("%s", namaOrang);
 
             DeletePerson(&awal, nameKota, namaOrang);
+            printf("\n");
             PrintInfoCity(awal);
         }
         else if(opsi == 3){
@@ -62,6 +65,7 @@ int main(){
             scanf("%s", nameKota);
 
             DeleteCity(&awal, nameKota);
+            printf("\n");
             PrintInfoCity(awal);
         }
 
@@ -70,6 +74,7 @@ int main(){
         if(oh == 'N' || oh == 'n'){
             isLagi = false;
         }
+        printf("\n");
     }
 
     return 0;

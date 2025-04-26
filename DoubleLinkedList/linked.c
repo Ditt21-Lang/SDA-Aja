@@ -356,10 +356,9 @@ void PrintInfo(List L)
 		P = First(L);
 		while (P != Nil)
 		{
-			printf("%s ", Info(P));
+			printf("%s -> ", Info(P));
 			P = Next(P);
 		}
-		printf("\n");
 	}
 	/* Buatkan algoritma sesuai spesifikasi modul ini*/
 }

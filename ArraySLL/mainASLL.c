@@ -24,7 +24,8 @@ int main(){
         CreateEmpty(&array_kota, array_kota.size);
     }
 
-    for(int i = 0; i < array_kota.size; i++){
+	int i;
+    for(i = 0; i < array_kota.size; i++){
         printf("Masukkan Kota ke-%d: ", i);
         scanf("%s", name);
         
@@ -36,7 +37,7 @@ int main(){
 
     while (isLagi){
         printf("Pilih Opsi: \n");
-        printf("1. Insert Person\n2. Delete Person\n3. Delete Kota\nPilih aku atau dia: ");
+        printf("1. Insert Person\n2. Delete Person\n3. Delete Kota\nPilih 1,2, atau 3: ");
         scanf("%d", &opsi);
 
         if(opsi == 1){
@@ -44,9 +45,9 @@ int main(){
             scanf("%s", nameKota);
             printf("Masukkan nama orang tersebut: ");
             scanf("%s", namaOrang);
-
-            InsertPerson(&array_kota, nameKota, namaOrang);
-
+			
+            InsertPerson(&array_kota, nameKota, strdup(namaOrang));
+			PrintInfoKota(&array_kota);
         }
         else if (opsi == 2){
             printf("Masukkan dimana orang tersebut berada: ");
@@ -55,12 +56,14 @@ int main(){
             scanf("%s", namaOrang);
 
             DeletePerson(&array_kota, nameKota, namaOrang);
+            PrintInfoKota(&array_kota);
         }
         else if(opsi == 3){
             printf("Masukkan nama kota tersebut: ");
             scanf("%s", nameKota);
 
-            DeleteKota(&array_kota, &nameKota);
+            DeleteKota(&array_kota, nameKota);
+            PrintInfoKota(&array_kota);
         }
 
         printf("Mau lagi? (Y/N): ");
